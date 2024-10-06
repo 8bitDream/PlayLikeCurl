@@ -25,7 +25,6 @@ import androidx.annotation.Nullable;
 /**
  * AnimateCounter provides ability to animate the changing of numbers using the builtin
  * Android Interpolator animation functionality.
- *
  */
 public class AnimateCounter {
     /**
@@ -58,7 +57,7 @@ public class AnimateCounter {
     /**
      * Call to execute the animation
      */
-    public void execute(){
+    public void execute() {
         mValueAnimator = ValueAnimator.ofFloat(mStartValue, mEndValue);
         mValueAnimator.setDuration(mDuration);
         mValueAnimator.setInterpolator(mInterpolator);
@@ -66,8 +65,8 @@ public class AnimateCounter {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float current = Float.valueOf(valueAnimator.getAnimatedValue().toString());
-                if(mListener!=null)mListener.onValueUpdate(current);
-           //     mView.setText(String.format("%." + mPrecision + "f", current));
+                if (mListener != null) mListener.onValueUpdate(current);
+                //     mView.setText(String.format("%." + mPrecision + "f", current));
             }
         });
 
@@ -98,7 +97,7 @@ public class AnimateCounter {
          * Set the start and end integers to be animated
          *
          * @param start initial value
-         * @param end final value
+         * @param end   final value
          * @return This Builder object to allow for chaining of calls to set methods
          */
         public Builder setCount(final int start, final int end) {
@@ -115,8 +114,8 @@ public class AnimateCounter {
         /**
          * Set the start and end floating point numbers to be animated
          *
-         * @param start initial value
-         * @param end final value
+         * @param start     initial value
+         * @param end       final value
          * @param precision number of decimal places to use
          * @return This Builder object to allow for chaining of calls to set methods
          */
@@ -199,6 +198,7 @@ public class AnimateCounter {
      */
     public interface AnimateCounterListener {
         void onAnimateCounterEnd();
+
         void onValueUpdate(float value);
     }
 }

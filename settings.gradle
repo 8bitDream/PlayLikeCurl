@@ -1,1 +1,1 @@
-include ':app', ':karackencurllib'
+include ':karackencurllib'
